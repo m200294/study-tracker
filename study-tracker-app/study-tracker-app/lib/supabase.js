@@ -45,6 +45,32 @@ export async function addSession(session) {
   return data[0];
 }
 
+export async function updateSession(id, updates) {
+  const row = {
+    subject: updates.subject,
+    timestamp: updates.timestamp || new Date().toISOString(),
+    type: updates.type || "exam_practice",
+    topics: updates.topics || [],
+    topic: updates.topic || null,
+    attempted: updates.attempted || 0,
+    correct: updates.correct || 0,
+    partial: updates.partial || 0,
+    wrong: updates.wrong || 0,
+    estimated_marks: updates.estimatedMarks || updates.estimated_marks || null,
+    topic_breakdown: updates.topicBreakdown || updates.topic_breakdown || null,
+    duration_mins: updates.duration_mins || null,
+    bloom_level_reached: updates.bloom_level_reached || null,
+    layers_covered: updates.layers_covered || null,
+    concepts_encoded: updates.concepts_encoded || null,
+    weak_areas: updates.weakAreas || updates.weak_areas || [],
+    next_session: updates.nextSession || updates.next_session || null,
+  };
+
+  const { data, error } = await supabase.from("sessions").update(row).eq("id", id).select();
+  if (error) throw error;
+  return data[0];
+}
+
 export async function deleteSession(id) {
   const { error } = await supabase.from("sessions").delete().eq("id", id);
   if (error) throw error;
@@ -59,6 +85,9 @@ export function groupBySubject(sessions) {
       ...s,
       estimatedMarks: s.estimated_marks,
       topicBreakdown: s.topic_breakdown,
+      duration_mins: s.duration_mins,
+      bloom_level_reached: s.bloom_level_reached,
+      concepts_encoded: s.concepts_encoded || [],
       weakAreas: s.weak_areas || [],
       nextSession: s.next_session,
     };

@@ -1,0 +1,77 @@
+export const SUBJECTS = {
+  ADS2: {
+    label: "ADS2",
+    fullName: "Algorithms & Data Structures II",
+    code: "CM2035",
+    examDate: "2026-03-17",
+    accent: "#ff6b35",
+    topics: ["BST", "Graphs", "Hash Tables", "Time Complexity", "Sorting", "Linked Lists", "Other"],
+    topicColors: {
+      BST: "#ff6b35",
+      Graphs: "#4ecdc4",
+      "Hash Tables": "#ffe66d",
+      "Time Complexity": "#a8e6cf",
+      Sorting: "#c3b1e1",
+      "Linked Lists": "#ffd3b6",
+      Other: "#777777",
+    },
+  },
+  PWD: {
+    label: "PWD",
+    fullName: "Programming with Data",
+    code: "CM2015",
+    examDate: "2026-03-24",
+    accent: "#4ecdc4",
+    topics: [
+      "Data Types",
+      "SQL",
+      "Web Scraping",
+      "Data Visualisation",
+      "EDA",
+      "Error Handling",
+      "Date/Time",
+      "Pandas",
+      "Other",
+    ],
+    topicColors: {
+      "Data Types": "#4ecdc4",
+      SQL: "#ff6b35",
+      "Web Scraping": "#ffe66d",
+      "Data Visualisation": "#c3b1e1",
+      EDA: "#a8e6cf",
+      "Error Handling": "#ffd3b6",
+      "Date/Time": "#7ec8e3",
+      Pandas: "#b5ead7",
+      Other: "#777777",
+    },
+  },
+  HCW: {
+    label: "HCW",
+    fullName: "How Computers Work",
+    code: "CM1030",
+    examDate: "2026-03-18",
+    accent: "#c3b1e1",
+    topics: [
+      "CPU & Architecture",
+      "Data Representation",
+      "Networking",
+      "Operating Systems",
+      "Machine Learning",
+      "Scenarios",
+      "Other",
+    ],
+    topicColors: {
+      "CPU & Architecture": "#c3b1e1",
+      "Data Representation": "#ffd3b6",
+      Networking: "#7ec8e3",
+      "Operating Systems": "#ff6b6b",
+      "Machine Learning": "#ffe66d",
+      Scenarios: "#a8e6cf",
+      Other: "#777777",
+    },
+  },
+};
+
+export function daysUntil(dateString) {
+  return Math.max(0, Math.ceil((new Date(dateString) - new Date()) / 86400000));
+}
