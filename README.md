@@ -250,7 +250,7 @@ study-tracker-app/
 
 ---
 
-## Adapting This for Your Own Exams
+## Adapting This for Your Own Exams (check out the exam_prep_proj repo for the project template)
 
 This system isn't specific to these 3 subjects. To adapt it:
 
